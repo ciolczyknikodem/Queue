@@ -61,5 +61,10 @@ class QueueTest {
 
         assertEquals(expected, queue.getQueueCapacity());
     }
+    
+    @Test
+    void throwExceptionWhenTryDequeueEmptyContainer() {
+        assertThrows(IndexOutOfBoundsException.class, queue::dequeue);
+    }
 
 }
