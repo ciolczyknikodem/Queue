@@ -39,7 +39,7 @@ public class Queue<T> implements QueueManager<T> {
 
     @SuppressWarnings("unchecked")
     private void ensureCapacity() {
-        if (queueSize < capacity) {
+        if (queueSize > capacity) {
             capacity = capacity * 2;
             T[] increasedArray = (T[]) new Object[capacity];
             rewriteElementsToMoreCapacityContainer(increasedArray);
