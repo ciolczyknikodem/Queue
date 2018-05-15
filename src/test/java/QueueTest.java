@@ -52,4 +52,14 @@ class QueueTest {
         assertEquals(true, queue.isEmpty());
     }
 
+    @Test
+    void isQueueCorrectlyIncrementCapacity() {
+        for (int i = 0; i < 10; i++) {
+            queue.enqueue(i);
+        }
+        int expected = 16;
+
+        assertEquals(expected, queue.getQueueCapacity());
+    }
+
 }
