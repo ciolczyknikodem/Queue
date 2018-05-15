@@ -21,8 +21,11 @@ public class Queue<T> implements QueueManager<T> {
     }
 
     public T dequeue() {
-        queueSize--;
-        return array[queueSize];
+        if (queueSize > 0) {
+            queueSize--;
+            return array[queueSize];
+        }
+        throw new IndexOutOfBoundsException();
     }
 
     public int getQueueSize() {
