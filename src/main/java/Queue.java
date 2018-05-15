@@ -38,11 +38,11 @@ public class Queue<T> implements QueueManager<T> {
         if (queueSize < size) {
             size = size * 2;
             T[] increasedArray = (T[]) new Object[size];
-            rewriteElementsToMoreCapacityContainter(increasedArray);
+            rewriteElementsToMoreCapacityContainer(increasedArray);
         }
     }
 
-    private void rewriteElementsToMoreCapacityContainter(T[] extendArray) {
+    private void rewriteElementsToMoreCapacityContainer(T[] extendArray) {
         for (int i = 0; i < queueSize - 1; i++) {
             extendArray[i] = array[i];
         }
