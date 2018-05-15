@@ -1,12 +1,12 @@
 public class Queue<T> implements QueueManager<T> {
 
     private T[] array;
-    private int size = 2;
+    private int capacity = 2;
     private int queueSize = 0;
 
     @SuppressWarnings("unchecked")
     public Queue() {
-        array = (T[]) new Object[size];
+        array = (T[]) new Object[capacity];
     }
 
     public void enqueue(T element) {
@@ -29,15 +29,19 @@ public class Queue<T> implements QueueManager<T> {
         return queueSize;
     }
 
+    public int getQueueCapacity() {
+        return capacity;
+    }
+
     public boolean isEmpty() {
         return queueSize == 0;
     }
 
     @SuppressWarnings("unchecked")
     private void ensureCapacity() {
-        if (queueSize < size) {
-            size = size * 2;
-            T[] increasedArray = (T[]) new Object[size];
+        if (queueSize < capacity) {
+            capacity = capacity * 2;
+            T[] increasedArray = (T[]) new Object[capacity];
             rewriteElementsToMoreCapacityContainer(increasedArray);
         }
     }
@@ -48,5 +52,4 @@ public class Queue<T> implements QueueManager<T> {
         }
         array = extendArray;
     }
-
 }
