@@ -42,7 +42,7 @@ class QueueTest {
         for (int i = 0; i < 3; i++) {
             queue.enqueue(i);
         }
-        Integer expected = 2;
+        Integer expected = 0;
 
         assertEquals(expected, queue.dequeue());
     }
@@ -61,7 +61,7 @@ class QueueTest {
 
         assertEquals(expected, queue.getQueueCapacity());
     }
-    
+
     @Test
     void throwExceptionWhenTryDequeueEmptyContainer() {
         assertThrows(IndexOutOfBoundsException.class, queue::dequeue);

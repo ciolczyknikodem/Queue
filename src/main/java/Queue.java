@@ -3,6 +3,7 @@ public class Queue<T> implements QueueManager<T> {
     private T[] array;
     private int capacity = 2;
     private int queueSize = 0;
+    private int FIRST_ELEMENT_INDEX = 0;
 
     @SuppressWarnings("unchecked")
     public Queue() {
@@ -22,8 +23,7 @@ public class Queue<T> implements QueueManager<T> {
 
     public T dequeue() {
         if (queueSize > 0) {
-            queueSize--;
-            return array[queueSize];
+            return array[FIRST_ELEMENT_INDEX++];
         }
         throw new IndexOutOfBoundsException();
     }
