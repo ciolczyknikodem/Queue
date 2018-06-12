@@ -1,1 +1,1 @@
-# Generic Queue implementation.
+# Generic Queue implementation on array.
